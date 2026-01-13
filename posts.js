@@ -7,7 +7,8 @@ const blogPosts = [
       "Tillgänglighet på webben handlar om att skapa lösningar som kan användas av alla, oavsett funktionsvariation. Genom att följa WCAG säkerställs begriplighet och användbarhet.",
     author: "Anna Svensson",
     date: "2025-01-05",
-    category: "Webbutveckling"
+    category: "Webbutveckling",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-2",
@@ -17,7 +18,8 @@ const blogPosts = [
       "Semantiska element som article, header och nav gör innehållet mer begripligt för skärmläsare och andra hjälpmedel.",
     author: "Erik Johansson",
     date: "2025-01-08",
-    category: "HTML"
+    category: "HTML",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-3",
@@ -27,7 +29,8 @@ const blogPosts = [
       "WCAG kräver tillräcklig kontrast mellan text och bakgrund. Detta är särskilt viktigt för användare med nedsatt syn.",
     author: "Lina Berg",
     date: "2025-01-12",
-    category: "Design"
+    category: "Design",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-4",
@@ -37,7 +40,8 @@ const blogPosts = [
       "En korrekt rubrikstruktur gör det möjligt för användare att snabbt navigera mellan olika delar av innehållet.",
     author: "Johan Nilsson",
     date: "2025-01-15",
-    category: "Tillgänglighet"
+    category: "Tillgänglighet",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-5",
@@ -47,7 +51,8 @@ const blogPosts = [
       "Alt-texter är nödvändiga för användare som inte kan se bilder. De ska vara korta, beskrivande och relevanta.",
     author: "Sara Lund",
     date: "2025-01-18",
-    category: "WCAG"
+    category: "WCAG",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-6",
@@ -57,7 +62,8 @@ const blogPosts = [
       "Webbplatser måste vara fullt användbara med tangentbord för att uppfylla tillgänglighetskrav.",
     author: "Markus Holm",
     date: "2025-01-22",
-    category: "UX"
+    category: "UX",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-7",
@@ -67,7 +73,8 @@ const blogPosts = [
       "Alla formulärfält ska ha korrekt kopplade label-element för bästa tillgänglighet.",
     author: "Emma Karlsson",
     date: "2025-01-25",
-    category: "Formulär"
+    category: "Formulär",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   },
   {
     id: "post-8",
@@ -77,7 +84,9 @@ const blogPosts = [
       "Genom att använda lang-attributet kan skärmläsare uttala texten korrekt.",
     author: "Daniel Persson",
     date: "2025-01-28",
-    category: "Internationellt"
+    category: "Internationellt",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+
   },
   {
     id: "post-9",
@@ -87,7 +96,8 @@ const blogPosts = [
       "När tillgänglighet är en naturlig del av utvecklingsprocessen skapas bättre produkter för alla.",
     author: "Maria Ek",
     date: "2025-02-01",
-    category: "Strategi"
+    category: "Strategi",
+    Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   }
 ];
 
@@ -97,8 +107,7 @@ blogPosts.forEach(post => {
   const article = document.createElement("article");
   article.id = post.id;
 
-  article.innerHTML = 
-  `
+  article.innerHTML = `
     <header>
       <h2>${post.title}</h2>
       <p>
@@ -112,8 +121,7 @@ blogPosts.forEach(post => {
     <p><strong>Kort utdrag:</strong> ${post.excerpt}</p>
     <p>${post.content}</p>
     <img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png" alt="Placeholder" />
-    `
-    ;
+    `;
 
   container.appendChild(article);
 });

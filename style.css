@@ -16,6 +16,9 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #333333;
+body.dark-mode {
+    background: #121212;
+    color: white;
 }
 
 ul li a:hover {
