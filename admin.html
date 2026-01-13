@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin - Campus Blog</title>
+</head>
+<body>
+<header class="header">
+    <h1><a href="index.html">Campus Blog</a></h1>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+    <button id="theme-toggle">🌙 Dark mode</button>
+</header>
+
+<main class="main admin-page">
+    <section class="admin-form-section">
+        <h2>Skapa nytt inlägg</h2>
+        <form id="post-form" class="post-form">
+            <input type="hidden" id="edit-id">
+
+            <div class="form-group">
+                <label for="post-title">Titel *</label>
+                <input type="text" id="post-title" required placeholder="Skriv en titel...">
+            </div>
+
+            <div class="form-group">
+                <label for="post-author">Författare *</label>
+                <input type="text" id="post-author" required placeholder="Ditt namn...">
+            </div>
+
+            <div class="form-group">
+                <label for="post-category">Kategori *</label>
+                <select id="post-category" required>
+                    <option value="">Välj kategori...</option>
+                    <option value="Webbutveckling">Webbutveckling</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Design">Design</option>
+                    <option value="Tillgänglighet">Tillgänglighet</option>
+                    <option value="UX">UX</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="post-image">Bild-URL</label>
+                <input type="url" id="post-image" placeholder="https://example.com/bild.jpg">
+            </div>
+
+            <div class="form-group">
+                <label for="post-excerpt">Kort beskrivning *</label>
+                <textarea id="post-excerpt" rows="2" required placeholder="En kort sammanfattning..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="post-content">Innehåll *</label>
+                <textarea id="post-content" rows="6" required placeholder="Skriv hela inlägget här..."></textarea>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" id="submit-btn" class="btn btn-success">Publicera</button>
+                <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;">Avbryt</button>
+            </div>
+
+            <p id="form-message"></p>
+        </form>
+    </section>
+
+    <section class="admin-posts-section">
+        <h2>Hantera inlägg</h2>
+        <div id="admin-posts-list" class="admin-posts-list">
+            <!-- Inlägg laddas här -->
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Campus Blog | Admin</p>
+</footer>
+
+<script src="posts.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

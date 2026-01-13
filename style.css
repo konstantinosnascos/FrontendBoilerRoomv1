@@ -1,51 +1,118 @@
-body.dark-mode {
-    background: #121212;
-    color: white;
-}
-
-
+/* ========================================
+   1. RESET
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.post-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-}
-
-.post-body .category {
-    display: inline-block;
-    background-color: #3498db;
-    color: #ffffff;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
+/* ========================================
+   2. VARIABLER
+   ======================================== */
 :root {
     --color-primary: #2c3e50;
     --color-secondary: #3498db;
     --color-accent: #e74c3c;
+    --color-success: #27ae60;
     --color-light: #ecf0f1;
     --color-dark: #2c3e50;
     --color-white: #ffffff;
     --color-text: #333333;
     --color-muted: #666666;
+    --color-border: #dddddd;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 5px 20px rgba(0, 0, 0, 0.15);
+    --radius: 8px;
+    --transition: 0.3s ease;
+}
+
+/* ========================================
+   3. BASE STYLES
+   ======================================== */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
     background-color: var(--color-light);
     color: var(--color-text);
+    transition: background-color var(--transition), color var(--transition);
+    min-height: 100vh;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-secondary);
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* ========================================
+   4. DARK MODE
+   ======================================== */
+body.dark-mode {
+    --color-light: #121212;
+    --color-white: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-dark: #e0e0e0;
+    --color-muted: #b0b0b0;
+    --color-border: #333333;
+    --color-primary: #1a1a2e;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .post-card,
+body.dark-mode .subscription-options,
+body.dark-mode .categories,
+body.dark-mode .single-post,
+body.dark-mode .author-box,
+body.dark-mode .related-posts {
+    background-color: #1e1e1e;
+    border-color: #333333;
+}
+
+body.dark-mode .featured-post {
+    background-color: #2980b9;
+}
+
+body.dark-mode .subscription-options textarea,
+body.dark-mode .subscription-options input {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444444;
+}
+
+body.dark-mode .category-option {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .post-single-header,
+body.dark-mode .post-excerpt,
+body.dark-mode .related-post-card {
+    border-color: #333333;
+}
+
+/* ========================================
+   5. HEADER
+   ======================================== */
 .header {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -54,13 +121,45 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
 }
 
 .header h1 {
     font-size: 1.5rem;
     letter-spacing: 1px;
+    color: white;
 }
 
+.header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ========================================
+   6. THEME TOGGLE
+   ======================================== */
+#theme-toggle {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+#theme-toggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   7. NAVIGATION
+   ======================================== */
 .nav-list {
     list-style: none;
     display: flex;
@@ -70,43 +169,63 @@ body {
     text-align: center;
 }
 
+.nav-list li {
+    width: 100%;
+}
+
 .nav-list a {
-    color: var(--color-white);
+    color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
     display: block;
     border-radius: 4px;
+    transition: background-color var(--transition);
 }
 
 .nav-list a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
+/* ========================================
+   8. MAIN CONTAINER
+   ======================================== */
 .main {
     padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
+/* ========================================
+   9. FEATURED POST
+   ======================================== */
 .featured-box {
     margin-bottom: 2rem;
 }
 
 .featured-post {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-secondary), #2980b9);
+    color: white;
     padding: 2rem 1rem;
     text-align: center;
-    border-radius: 8px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .featured-post h1 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: white;
 }
 
 .featured-post p {
     font-size: 1rem;
+    opacity: 0.9;
 }
 
+/* ========================================
+   10. SECTIONS
+   ======================================== */
 .recent-post,
 .popular-post,
 .categories,
@@ -116,44 +235,70 @@ body {
 
 .recent-post h2,
 .popular-post h2,
-.categories h2 {
+.categories h2,
+.subscription-options h2 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     color: var(--color-dark);
-    border-bottom: 2px solid var(--color-secondary);
+    border-bottom: 3px solid var(--color-secondary);
     padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
+/* ========================================
+   11. CARDS CONTAINER
+   ======================================== */
 .cards-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
+/* ========================================
+   12. POST CARDS
+   ======================================== */
 .post-card {
     background-color: var(--color-white);
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
     overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .post-header {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
-    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-secondary), #2980b9);
+    color: white;
+    padding: 1rem 1.25rem;
 }
 
 .post-header h3 {
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.post-card-link:hover .post-header h3 {
+    text-decoration: underline;
 }
 
 .post-body {
-    padding: 1rem;
+    padding: 1.25rem;
 }
 
 .post-body p {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: var(--color-muted);
     font-size: 0.9rem;
 }
@@ -163,82 +308,1007 @@ body {
     color: var(--color-dark);
 }
 
+.post-body .date {
+    font-size: 0.85rem;
+}
+
+.post-body .category {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.post-body .description {
+    margin-top: 0.75rem;
+    line-height: 1.5;
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+/* ========================================
+   13. SUBSCRIPTION
+   ======================================== */
 .subscription-options {
     background-color: var(--color-white);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: var(--radius);
     text-align: center;
+    box-shadow: var(--shadow);
 }
 
 .subscription-options label {
     display: block;
-    margin: 1rem 0 0.5rem;
+    margin-bottom: 0.5rem;
     font-weight: bold;
     color: var(--color-dark);
+    text-align: left;
 }
 
 .subscription-options textarea {
     width: 100%;
-    max-width: 300px;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
+    padding: 0.75rem;
+    border: 2px solid var(--color-border);
     border-radius: 4px;
     resize: none;
     font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color var(--transition);
+}
+
+.subscription-options textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .subscription-options button {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem 1rem;
     border: none;
-    padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    font-weight: 500;
+    transition: background-color var(--transition), transform var(--transition);
 }
 
 .subscription-options button:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
-.subscription-options button:last-of-type {
+#subscribe-btn {
+    background-color: var(--color-success);
+    color: white;
+}
+
+#subscribe-btn:hover {
+    background-color: #219a52;
+}
+
+#unsubscribe-btn {
     background-color: var(--color-accent);
+    color: white;
 }
 
-.subscription-options button:last-of-type:hover {
+#unsubscribe-btn:hover {
     background-color: #c0392b;
 }
 
+#subscription-message {
+    margin-top: 1rem;
+    font-weight: bold;
+    min-height: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+/* ========================================
+   14. CATEGORIES
+   ======================================== */
 .categories {
     background-color: var(--color-white);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-.cateogry-options {
+.category-option {
     background-color: var(--color-light);
     padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    transition: all var(--transition);
+    font-weight: 500;
 }
 
-.cateogry-options:hover {
+.category-option:last-child {
+    margin-bottom: 0;
+}
+
+.category-option:hover,
+.category-option.active {
     background-color: var(--color-secondary);
-    color: var(--color-white);
+    color: white;
+    transform: translateX(5px);
 }
 
+/* ========================================
+   15. FOOTER
+   ======================================== */
 .footer {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: white;
     text-align: center;
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 2rem 1rem;
     margin-top: 2rem;
 }
 
+.footer p {
+    opacity: 0.9;
+}
+
+/* ========================================
+   16. SINGLE POST PAGE
+   ======================================== */
+.single-post-page {
+    padding: 1rem;
+}
+
+.single-post {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.post-hero-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.post-single-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.post-category-tag {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.single-post h1 {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.post-content {
+    padding: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+.post-excerpt {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    font-style: italic;
+}
+
+/* ========================================
+   17. SIDEBAR (SINGLE POST)
+   ======================================== */
+.sidebar-single {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all var(--transition);
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+    color: white;
+    transform: translateX(-5px);
+}
+
+.author-box,
+.related-posts {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.author-box h3,
+.related-posts h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.author-box p {
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+.related-post-card {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.related-post-card:first-of-type {
+    padding-top: 0;
+}
+
+.related-post-card:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.related-post-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.related-post-card h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    transition: color var(--transition);
+}
+
+.related-post-card p {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.related-post-card:hover h4 {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* ========================================
+   18. POST NOT FOUND
+   ======================================== */
+.post-not-found {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+}
+
+.post-not-found h1 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.post-not-found p {
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   1. RESET
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   2. VARIABLER
+   ======================================== */
+:root {
+    --color-primary: #2c3e50;
+    --color-secondary: #3498db;
+    --color-accent: #e74c3c;
+    --color-success: #27ae60;
+    --color-light: #ecf0f1;
+    --color-dark: #2c3e50;
+    --color-white: #ffffff;
+    --color-text: #333333;
+    --color-muted: #666666;
+    --color-border: #dddddd;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 5px 20px rgba(0, 0, 0, 0.15);
+    --radius: 8px;
+    --transition: 0.3s ease;
+}
+
+/* ========================================
+   3. BASE STYLES
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    transition: background-color var(--transition), color var(--transition);
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-secondary);
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* ========================================
+   4. DARK MODE
+   ======================================== */
+body.dark-mode {
+    --color-light: #121212;
+    --color-white: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-dark: #e0e0e0;
+    --color-muted: #b0b0b0;
+    --color-border: #333333;
+    --color-primary: #1a1a2e;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .post-card,
+body.dark-mode .subscription-options,
+body.dark-mode .categories,
+body.dark-mode .single-post,
+body.dark-mode .author-box,
+body.dark-mode .related-posts {
+    background-color: #1e1e1e;
+    border-color: #333333;
+}
+
+body.dark-mode .featured-post {
+    background-color: #2980b9;
+}
+
+body.dark-mode .subscription-options textarea,
+body.dark-mode .subscription-options input {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444444;
+}
+
+body.dark-mode .category-option {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .post-single-header,
+body.dark-mode .post-excerpt,
+body.dark-mode .related-post-card {
+    border-color: #333333;
+}
+
+/* ========================================
+   5. HEADER
+   ======================================== */
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ========================================
+   6. THEME TOGGLE
+   ======================================== */
+#theme-toggle {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+#theme-toggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   7. NAVIGATION
+   ======================================== */
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-list li {
+    width: 100%;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color var(--transition);
+}
+
+.nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* ========================================
+   8. MAIN CONTAINER
+   ======================================== */
+.main {
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   9. FEATURED POST
+   ======================================== */
+.featured-box {
+    margin-bottom: 2rem;
+}
+
+.featured-post {
+    background: linear-gradient(135deg, var(--color-secondary), #2980b9);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.featured-post h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.featured-post p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   10. SECTIONS
+   ======================================== */
+.recent-post,
+.popular-post,
+.categories,
+.subscription-options {
+    margin-bottom: 2rem;
+}
+
+.recent-post h2,
+.popular-post h2,
+.categories h2,
+.subscription-options h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* ========================================
+   11. CARDS CONTAINER
+   ======================================== */
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* ========================================
+   12. POST CARDS
+   ======================================== */
+.post-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.post-header {
+    background: linear-gradient(135deg, var(--color-secondary), #2980b9);
+    color: white;
+    padding: 1rem 1.25rem;
+}
+
+.post-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.post-card-link:hover .post-header h3 {
+    text-decoration: underline;
+}
+
+.post-body {
+    padding: 1.25rem;
+}
+
+.post-body p {
+    margin-bottom: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.post-body .blogger {
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.post-body .date {
+    font-size: 0.85rem;
+}
+
+.post-body .category {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.post-body .description {
+    margin-top: 0.75rem;
+    line-height: 1.5;
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+/* ========================================
+   13. SUBSCRIPTION
+   ======================================== */
+.subscription-options {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.subscription-options label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-dark);
+    text-align: left;
+}
+
+.subscription-options textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    resize: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color var(--transition);
+}
+
+.subscription-options textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.subscription-options button {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.subscription-options button:hover {
+    transform: translateY(-2px);
+}
+
+#subscribe-btn {
+    background-color: var(--color-success);
+    color: white;
+}
+
+#subscribe-btn:hover {
+    background-color: #219a52;
+}
+
+#unsubscribe-btn {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+#unsubscribe-btn:hover {
+    background-color: #c0392b;
+}
+
+#subscription-message {
+    margin-top: 1rem;
+    font-weight: bold;
+    min-height: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+/* ========================================
+   14. CATEGORIES
+   ======================================== */
+.categories {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.category-option {
+    background-color: var(--color-light);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-weight: 500;
+}
+
+.category-option:last-child {
+    margin-bottom: 0;
+}
+
+.category-option:hover,
+.category-option.active {
+    background-color: var(--color-secondary);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* ========================================
+   15. FOOTER
+   ======================================== */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+.footer p {
+    opacity: 0.9;
+}
+
+/* ========================================
+   16. SINGLE POST PAGE
+   ======================================== */
+.single-post-page {
+    padding: 1rem;
+}
+
+.single-post {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.post-hero-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.post-single-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.post-category-tag {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.single-post h1 {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.post-content {
+    padding: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+.post-excerpt {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    font-style: italic;
+}
+
+/* ========================================
+   17. SIDEBAR (SINGLE POST)
+   ======================================== */
+.sidebar-single {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all var(--transition);
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+    color: white;
+    transform: translateX(-5px);
+}
+
+.author-box,
+.related-posts {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.author-box h3,
+.related-posts h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.author-box p {
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+.related-post-card {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.related-post-card:first-of-type {
+    padding-top: 0;
+}
+
+.related-post-card:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.related-post-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.related-post-card h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    transition: color var(--transition);
+}
+
+.related-post-card p {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.related-post-card:hover h4 {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* ========================================
+   18. POST NOT FOUND
+   ======================================== */
+.post-not-found {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+}
+
+.post-not-found h1 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.post-not-found p {
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   19. MEDIA QUERIES - TABLET (768px)
+   ======================================== */
 @media (min-width: 768px) {
+    /* Header */
     .header {
         flex-direction: row;
         justify-content: space-between;
@@ -249,10 +1319,15 @@ body {
         font-size: 1.8rem;
     }
 
+    /* Navigation */
     .nav-list {
         flex-direction: row;
         width: auto;
-        gap: 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .nav-list li {
+        width: auto;
     }
 
     .nav-list a:hover {
@@ -260,10 +1335,12 @@ body {
         text-decoration: underline;
     }
 
+    /* Main */
     .main {
         padding: 2rem;
     }
 
+    /* Featured */
     .featured-post {
         padding: 3rem 2rem;
     }
@@ -276,93 +1353,52 @@ body {
         font-size: 1.15rem;
     }
 
+    /* Cards */
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Headings */
     .recent-post h2,
     .popular-post h2,
-    .categories h2 {
+    .categories h2,
+    .subscription-options h2 {
         font-size: 1.5rem;
+    }
+
+    /* Single Post */
+    .single-post-page {
+        padding: 2rem;
+    }
+
+    .post-hero-image {
+        height: 350px;
+    }
+
+    .single-post h1 {
+        font-size: 2.2rem;
     }
 }
 
+/* ========================================
+   20. MEDIA QUERIES - DESKTOP (1024px)
+   ======================================== */
 @media (min-width: 1024px) {
+    /* Main Grid Layout */
     .main {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "featured featured"
-            "recent sidebar"
-            "popular sidebar"
+            "recent subscription"
+            "popular categories"
             "footer footer";
         gap: 2rem;
-    }
-
-    .subscription-options h2 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: #2c3e50;
-    }
-
-    .subscription-options label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        color: #2c3e50;
-    }
-
-    .subscription-options textarea {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #dddddd;
-        border-radius: 4px;
-        resize: none;
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .button-group {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-
-    .subscription-options button {
-        flex: 1;
-        min-width: 120px;
-        padding: 0.75rem 1rem;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-
-    #subscribe-btn {
-        background-color: #27ae60;
-        color: white;
-    }
-
-    #subscribe-btn:hover {
-        background-color: #219a52;
-    }
-
-    #unsubscribe-btn {
-        background-color: #e74c3c;
-        color: white;
-    }
-
-    #unsubscribe-btn:hover {
-        background-color: #c0392b;
-    }
-
-    #subscription-message {
-        margin-top: 1rem;
-        font-weight: bold;
-        min-height: 1.5rem;
+        align-items: start;
     }
 
     .featured-box {
@@ -377,19 +1413,23 @@ body {
         grid-area: popular;
     }
 
-    .subscription-options,
-    .categories {
-        grid-area: sidebar;
+    .subscription-options {
+        grid-area: subscription;
+        position: sticky;
+        top: 100px;
     }
 
-    .subscription-options {
-        margin-bottom: 1rem;
+    .categories {
+        grid-area: categories;
+        position: sticky;
+        top: 100px;
     }
 
     .footer {
         grid-area: footer;
     }
 
+    /* Featured */
     .featured-post {
         padding: 4rem 2rem;
     }
@@ -402,6 +1442,61 @@ body {
         font-size: 1.25rem;
     }
 
+    /* Cards */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recent-post .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .popular-post .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Single Post Page */
+    .single-post-page {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        align-items: start;
+    }
+
+    .single-post {
+        margin-bottom: 0;
+    }
+
+    .sidebar-single {
+        position: sticky;
+        top: 100px;
+    }
+
+    .post-hero-image {
+        height: 450px;
+    }
+
+    .single-post h1 {
+        font-size: 2.5rem;
+    }
+
+    .post-content {
+        font-size: 1.05rem;
+    }
+}
+
+/* ========================================
+   21. MEDIA QUERIES - LARGE DESKTOP (1280px)
+   ======================================== */
+@media (min-width: 1280px) {
+    .main {
+        max-width: 1400px;
+        grid-template-columns: 1fr 380px;
+    }
+
     .cards-container {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -410,9 +1505,543 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .single-post-page {
+        max-width: 1400px;
+        grid-template-columns: 1fr 400px;
+    }
+}
+
+/* ========================================
+   22. UTILITY CLASSES
+   ======================================== */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ========================================
+   23. ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post-card {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.post-card:nth-child(1) { animation-delay: 0.1s; }
+.post-card:nth-child(2) { animation-delay: 0.2s; }
+.post-card:nth-child(3) { animation-delay: 0.3s; }
+.post-card:nth-child(4) { animation-delay: 0.4s; }
+.post-card:nth-child(5) { animation-delay: 0.5s; }
+.post-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+/* ========================================
+   ADMIN PAGE
+   ======================================== */
+.admin-page {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-form-section,
+.admin-posts-section {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.admin-form-section h2,
+.admin-posts-section h2 {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* ===== FORMULÄR ===== */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+#form-message {
+    font-weight: bold;
+    min-height: 1.5rem;
+}
+
+/* ===== KNAPPAR ===== */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all var(--transition);
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #219a52;
+}
+
+.btn-secondary {
+    background-color: var(--color-muted);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #555555;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-view {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #2980b9;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #e67e22;
+}
+
+.btn-delete {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* ===== ADMIN POSTS LIST ===== */
+.admin-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-post-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+    background-color: var(--color-light);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--color-secondary);
+}
+
+.admin-post-info h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+
+.admin-post-meta {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 0.5rem;
+}
+
+.admin-post-excerpt {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.admin-post-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.original-badge {
+    background-color: var(--color-muted);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* ===== DARK MODE ADMIN ===== */
+body.dark-mode .admin-form-section,
+body.dark-mode .admin-posts-section {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444444;
+}
+
+body.dark-mode .admin-post-item {
+    background-color: #2a2a2a;
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+    .admin-post-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .admin-post-info {
+        flex: 1;
+    }
+
+    .admin-post-actions {
+        flex-shrink: 0;
+    }
+
+    .form-buttons {
+        flex-direction: row;
+    }
+}
+
+/* ========================================
+   19. MEDIA QUERIES - TABLET (768px)
+   ======================================== */
+@media (min-width: 768px) {
+    /* Header */
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Navigation */
+    .nav-list {
+        flex-direction: row;
+        width: auto;
+        gap: 0.5rem;
+    }
+
+    .nav-list li {
+        width: auto;
+    }
+
+    .nav-list a:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    /* Main */
+    .main {
+        padding: 2rem;
+    }
+
+    /* Featured */
+    .featured-post {
+        padding: 3rem 2rem;
+    }
+
+    .featured-post h1 {
+        font-size: 2rem;
+    }
+
+    .featured-post p {
+        font-size: 1.15rem;
+    }
+
+    /* Cards */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Headings */
+    .recent-post h2,
+    .popular-post h2,
+    .categories h2,
+    .subscription-options h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Single Post */
+    .single-post-page {
+        padding: 2rem;
+    }
+
+    .post-hero-image {
+        height: 350px;
+    }
+
+    .single-post h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ========================================
+   20. MEDIA QUERIES - DESKTOP (1024px)
+   ======================================== */
+@media (min-width: 1024px) {
+    /* Main Grid Layout */
+    .main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "featured featured"
+            "recent subscription"
+            "popular categories"
+            "footer footer";
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .featured-box {
+        grid-area: featured;
+    }
+
+    .recent-post {
+        grid-area: recent;
+    }
+
+    .popular-post {
+        grid-area: popular;
+    }
+
+    .subscription-options {
+        grid-area: subscription;
+        position: sticky;
+        top: 100px;
+    }
+
+    .categories {
+        grid-area: categories;
+        position: sticky;
+        top: 100px;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    /* Featured */
+    .featured-post {
+        padding: 4rem 2rem;
+    }
+
+    .featured-post h1 {
+        font-size: 2.5rem;
+    }
+
+    .featured-post p {
+        font-size: 1.25rem;
+    }
+
+    /* Cards */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recent-post .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .popular-post .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Single Post Page */
+    .single-post-page {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        align-items: start;
+    }
+
+    .single-post {
+        margin-bottom: 0;
+    }
+
+    .sidebar-single {
+        position: sticky;
+        top: 100px;
+    }
+
+    .post-hero-image {
+        height: 450px;
+    }
+
+    .single-post h1 {
+        font-size: 2.5rem;
+    }
+
+    .post-content {
+        font-size: 1.05rem;
+    }
 }
+
+/* ========================================
+   21. MEDIA QUERIES - LARGE DESKTOP (1280px)
+   ======================================== */
+@media (min-width: 1280px) {
+    .main {
+        max-width: 1400px;
+        grid-template-columns: 1fr 380px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recent-post .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .single-post-page {
+        max-width: 1400px;
+        grid-template-columns: 1fr 400px;
+    }
+}
+
+/* ========================================
+   22. UTILITY CLASSES
+   ======================================== */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ========================================
+   23. ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post-card {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.post-card:nth-child(1) { animation-delay: 0.1s; }
+.post-card:nth-child(2) { animation-delay: 0.2s; }
+.post-card:nth-child(3) { animation-delay: 0.3s; }
+.post-card:nth-child(4) { animation-delay: 0.4s; }
+.post-card:nth-child(5) { animation-delay: 0.5s; }
+.post-card:nth-child(6) { animation-delay: 0.6s; }
 
 
