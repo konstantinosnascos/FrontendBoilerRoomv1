@@ -1,75 +1,99 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Campus Blog – Inlägg</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>Campus Blog – Inlägg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-  <header class="site-header">
+<!-- HEADER -->
+<header class="site-header">
     <div class="container">
-      <a href="index.html" class="logo">Campus Blog</a>
-      <nav aria-label="Huvudmeny">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+        <a href="index.html" class="logo">Campus Blog</a>
 
-  <main class="container layout">
+        <nav aria-label="Huvudmeny">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<main class="container layout">
 
     <!-- HUVUDINLÄGG -->
     <article id="post" class="post-single">
-      <header class="post-header">
-        <img id="post-image" src="" alt="" class="post-image">
-        <h1 id="post-title"></h1>
-        <p class="post-meta">
-          <span id="post-author"></span> ·
-          <time id="post-date" datetime=""></time> ·
-          <span id="post-category"></span>
-        </p>
-      </header>
 
-      <section id="post-content" class="post-content"></section>
+        <header class="post-header">
+            <img id="post-image" src="" alt="" class="post-image">
 
-      <p><a href="index.html">← Tillbaka till startsidan</a></p>
+            <h1 id="post-title"></h1>
+
+            <p class="post-meta">
+                <span id="post-author"></span> ·
+                <time id="post-date" datetime=""></time> ·
+                <span id="post-category"></span>
+            </p>
+        </header>
+
+        <section id="post-content" class="post-content">
+            <!-- JS lägger in innehållet -->
+        </section>
+
+        <p><a href="index.html">← Tillbaka till startsidan</a></p>
+
     </article>
 
     <!-- SIDEBAR MED FORMULÄR -->
     <aside class="sidebar">
 
-      <section class="subscribe-box">
-        <h2>Subscribe</h2>
-        <p>Get the latest posts directly to your inbox.</p>
+        <!-- SUBSCRIBE -->
+        <section class="subscribe-box" aria-labelledby="subscribe-heading">
+            <h2 id="subscribe-heading">Subscribe</h2>
+            <p>Get the latest posts directly to your inbox.</p>
 
-        <form>
-          <label for="email">Email</label>
-          <input id="email" type="email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </section>
+            <form>
+                <label for="email">Email</label>
+                <input id="email" type="email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section aria-labelledby="categories-heading" class="categories">
+            <h2 id="categories-heading">Categories</h2>
+            <ul id="categories-list"></ul>
+        </section>
+
+        <!-- POPULAR POSTS -->
+        <section aria-labelledby="popular-heading" class="popular-posts">
+            <h2 id="popular-heading">Popular Posts</h2>
+            <div id="popular-posts-list" class="popular-list">
+                <!-- JS renderar populära inlägg -->
+            </div>
+        </section>
 
     </aside>
 
-  </main>
+</main>
 
-  <footer class="site-footer">
+<!-- FOOTER -->
+<footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Campus Blog</p>
+        <p>&copy; 2026 Campus Blog</p>
     </div>
-  </footer>
+</footer>
 
-  <!-- FIX: osynlig container så posts.js inte kraschar -->
-  <div id="blog-posts" style="display:none;"></div>
+<!-- Ladda data först (blogPosts-arrayen), sen sidan som renderar -->
+<script src="posts.js"></script>
+<script src="post.js"></script>
 
-  <script src="posts.js"></script>
-  <script src="post.js"></script>
 
 </body>
 </html>
