@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Blog – Inlägg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Campus Blog</a>
+
+      <nav aria-label="Huvudmeny">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="container layout">
+
+    <!-- MAIN POST CONTENT -->
+    <article id="post" class="post-single">
+
+      <header class="post-header">
+        <img id="post-image" src="" alt="" class="post-image">
+
+        <h1 id="post-title"></h1>
+
+        <p class="post-meta">
+          <span id="post-author"></span> ·
+          <time id="post-date" datetime=""></time> ·
+          <span id="post-category"></span>
+        </p>
+      </header>
+
+      <section id="post-content" class="post-content">
+        <!-- JS lägger in innehållet -->
+      </section>
+
+      <p><a href="index.html">← Tillbaka till startsidan</a></p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- SUBSCRIBE -->
+      <section class="subscribe-box" aria-labelledby="subscribe-heading">
+        <h2 id="subscribe-heading">Subscribe</h2>
+        <p>Get the latest posts directly to your inbox.</p>
+
+        <form>
+          <label for="email">Email</label>
+          <input id="email" type="email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section aria-labelledby="categories-heading" class="categories">
+        <h2 id="categories-heading">Categories</h2>
+        <ul id="categories-list"></ul>
+      </section>
+
+      <!-- POPULAR POSTS -->
+      <section aria-labelledby="popular-heading" class="popular-posts">
+        <h2 id="popular-heading">Popular Posts</h2>
+        <div id="popular-posts-list" class="popular-list">
+          <!-- JS renderar populära inlägg -->
+        </div>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+   <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Campus Blog</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/post.js"></script>
+
+</body>
+</html>
