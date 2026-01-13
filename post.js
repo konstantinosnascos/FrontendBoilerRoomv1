@@ -1,56 +1,36 @@
-// Säkerställ att DOM och data finns
-document.addEventListener("DOMContentLoaded", () => {
+// 1. Hämta id från URL
+const params = new URLSearchParams(window.location.search);
+const postId = params.get("id");
 
-  // Kontroll: finns blogPosts?
-  if (typeof blogPosts === "undefined") {
-    console.error("blogPosts finns inte. Kontrollera att posts.js laddas före post.js");
-    return;
-  }
+// 2. Hitta rätt inlägg
+const post = blogPosts.find(p => p.id === postId);
 
-  // Hämta id från URL (post.html?id=post-3)
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get("id");
+// 3. Om inget inlägg hittas – visa fallback men behåll layouten
+if (!post) {
+  document.getElementById("post-image").style.display = "none";
 
-  // Välj inlägg (fallback = första)
-  let selectedPost = blogPosts[0];
+  document.getElementById("post-title").textContent = "Inlägget hittades inte";
+  document.getElementById("post-author").textContent = "Okänd";
+  document.getElementById("post-date").textContent = "";
+  document.getElementById("post-category").textContent = "";
 
-  if (postId) {
-    const foundPost = blogPosts.find(post => post.id === postId);
-    if (foundPost) {
-      selectedPost = foundPost;
-    }
-  }
-
-  //  Hämta element
-  const titleEl = document.getElementById("post-title");
-  const authorEl = document.getElementById("post-author");
-  const dateEl = document.getElementById("post-date");
-  const categoryEl = document.getElementById("post-category");
-  const contentEl = document.getElementById("post-content");
-  const imageEl = document.getElementById("post-image");
-
-  // Säkerhetskoll
-  if (!titleEl || !authorEl || !dateEl || !categoryEl || !contentEl || !imageEl) {
-    console.error("Ett eller flera HTML-element saknas. Kontrollera id:n i HTML.");
-    return;
-  }
-
-  // Rendera inlägget
-  titleEl.textContent = selectedPost.title;
-  authorEl.textContent = selectedPost.author;
-  categoryEl.textContent = selectedPost.category;
-
-  dateEl.textContent = new Date(selectedPost.date).toLocaleDateString("sv-SE");
-  dateEl.setAttribute("datetime", selectedPost.date);
-
-  contentEl.innerHTML = `
-    <p><strong>Kort utdrag:</strong> ${selectedPost.excerpt}</p>
-    <p>${selectedPost.content}</p>
+  document.getElementById("post-content").innerHTML = `
+    <p>Tyvärr kunde vi inte hitta det här inlägget.</p>
+    <p><a href="index.html">Tillbaka till startsidan</a></p>
   `;
+} else {
 
-  imageEl.src = selectedPost.Image;
-  imageEl.alt = `Bild till inlägget "${selectedPost.title}"`;
+  // 4. Fyll HTML med data
+  document.getElementById("post-image").src = post.Image;
+  document.getElementById("post-image").alt = post.title;
 
-  // Uppdatera sidans <title>
-  document.title = `${selectedPost.title} | Campus Blog`;
-});
+  document.getElementById("post-title").textContent = post.title;
+  document.getElementById("post-author").textContent = post.author;
+
+  const dateEl = document.getElementById("post-date");
+  dateEl.textContent = new Date(post.date).toLocaleDateString("sv-SE");
+  dateEl.setAttribute("datetime", post.date);
+
+  document.getElementById("post-category").textContent = post.category;
+  document.getElementById("post-content").innerHTML = post.content;
+}
