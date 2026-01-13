@@ -1,107 +1,87 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Blogg</title>
 </head>
-    <body>
-        <header class="header">
-            <div class="logo">Blogg</div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a> </li>
-                    <li><a href="about.html">About</a> </li>
-                    <li><a href="#">Contact</a> </li>
-                </ul>
-            </nav>
-        </header>
 
-        <button id="theme-toggle" aria-label="Toggle dark mode">
-            🌙 Dark mode
-        </button>
+<body>
+<header class="header">
+    <div class="logo">Blogg</div>
+    <nav class="nav" aria-label="Huvudnavigation">
+        <ul class="nav-list">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-        <main class="main">
-            <section class="featured-post">
-                <h1>Featured Post</h1>
-                <p>Find the best blogg-post in town!</p>
-            </section>
-            <section class="recent-post">
-                <h2>Recent Posts</h2>
-                <div class="cards-container">
-                    <!-- Post 1 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+    <!-- Dark mode-knapp (flyttad in i headern så den känns "rätt") -->
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        🌙 Dark mode
+    </button>
+</header>
 
-                    <!-- Post 2 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+<main class="main">
+    <section class="featured-post">
+        <h1>Featured Post</h1>
+        <p>Find the best blogg-post in town!</p>
+    </section>
 
-                    <!-- Post 3 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+    <section class="recent-post">
+        <h2>Recent Posts</h2>
+
+        <!-- ✅ HIT renderar index.js alla posts -->
+        <div class="cards-container" id="blog-posts">
+            <!-- JS lägger in post-cards här -->
+        </div>
+    </section>
+
+    <section class="subscription-options">
+        <button>Subscribe</button><br>
+        <label for="subscribe-mail">Enter email</label>
+        <textarea name="Email" id="subscribe-mail" cols="30" rows="1"></textarea><br>
+        <button>Unsubscribe</button>
+    </section>
+
+    <section class="categories">
+        <h2>Categories</h2>
+        <p class="cateogry-options">kategori 1</p>
+        <p class="cateogry-options">kategori 2</p>
+        <p class="cateogry-options">kategori 3</p>
+        <p class="cateogry-options">kategori 4</p>
+    </section>
+
+    <section class="popular-post">
+        <h2>Popular Posts</h2>
+        <div class="cards-container">
+            <article class="post-card">
+                <div class="post-header"><h3>Popular Post Title</h3></div>
+                <div class="post-body">
+                    <p class="description">Short Description</p>
                 </div>
-            </section>
-            <section class="subscription-options">
-                <button>Subscribe</button><br>
-                <label name="Email">Enter email</label>
-                <textarea name="Email" id="subscribe-mail" cols="30" rows="1"></textarea><br>
-                <button>Unsubscribe</button>
+            </article>
 
-            </section>
-            <section class="categories">
-
-                <h2>Categories</h2>
-                <p class="cateogry-options">kategori 1</p>
-                <p class="cateogry-options">kategori 2</p>
-                <p class="cateogry-options">kategori 3</p>
-                <p class="cateogry-options">kategori 4</p>
-            </section>
-            <section class="popular-post">
-                <h2>Popular Posts</h2>
-                <div class="cards-container">
-                    <!-- Popular Post 1 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Popular Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
-
-                    <!-- Popular Post 2 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Popular Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+            <article class="post-card">
+                <div class="post-header"><h3>Popular Post Title</h3></div>
+                <div class="post-body">
+                    <p class="description">Short Description</p>
                 </div>
-            </section>
-            <footer class="footer">
-                <p>&copy; 2026 Blogg | Follow us on social media.</p>
-            </footer>
-        </main>
-        <script src="script.js"></script>
-    </body>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Blogg | Follow us on social media.</p>
+    </footer>
+
+</main>
+
+<script src="posts.js"></script>
+<script src="index.js"></script>
+<script src="script.js"></script>
+
+</body>
 </html>
