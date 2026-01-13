@@ -1,4 +1,148 @@
+/* ===== RESET & BAS ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #353535;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #4f6d7a;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #4f6d7a;
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background-color: #759c8a;
+  color: white;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-list a {
+  color: white;
+}
+
+.nav-list a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+/* ===== THEME BUTTON ===== */
+.theme-toggle {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* ===== FEATURED ===== */
+.featured-post {
+  background-color: #e8dab2;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.featured-content {
+  padding: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #4f6d7a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* ===== POSTS ===== */
+.posts h2 {
+  margin-bottom: 1rem;
+}
+
+.posts-list article {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar section {
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: #353535;
+  color: white;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* ===== DARK MODE ===== */
 body.dark-mode {
-    background: #121212;
-    color: white;
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode a {
+  color: #e8dab2;
+}
+
+/* ===== RESPONSIV ===== */
+@media (min-width: 1024px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
