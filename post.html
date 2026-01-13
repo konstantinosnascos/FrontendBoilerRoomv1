@@ -1,75 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Campus Blog – Inlägg</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post | Campus Blog</title>
+  <meta name="description" content="Read a post on Campus Blog.">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo">Campus Blog</a>
-      <nav aria-label="Huvudmeny">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+<header class="header">
+  <a href="index.html" class="logo">Campus Blog</a>
+
+  <nav aria-label="Huvudnavigation">
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <button id="theme-toggle" aria-label="Toggle dark mode">
+    🌙 Dark mode
+  </button>
 </header>
 
-  <main class="container layout">
+<main class="main">
 
-    <!-- HUVUDINLÄGG -->
-    <article id="post" class="post-single">
-      <header class="post-header">
-        <img id="post-image" src="" alt="" class="post-image">
-        <h1 id="post-title"></h1>
-        <p class="post-meta">
-          <span id="post-author"></span> ·
-          <time id="post-date" datetime=""></time> ·
-          <span id="post-category"></span>
-        </p>
-      </header>
+  <!-- POST -->
+  <article id="post" class="recent-post">
+    <h2 id="post-title"></h2>
 
-      <section id="post-content" class="post-content"></section>
+    <div class="post-card">
+      <img id="post-image" src="" alt="" class="post-image">
 
-      <p><a href="index.html">← Tillbaka till startsidan</a></p>
-    </article>
+      <div class="post-body">
+        <p class="blogger" id="post-author"></p>
+        <p id="post-date"></p>
+        <p class="category" id="post-category"></p>
+      </div>
+    </div>
 
-    <!-- SIDEBAR MED FORMULÄR -->
-    <aside class="sidebar">
+    <section id="post-content" class="post-body"></section>
 
-      <section class="subscribe-box">
-        <h2>Subscribe</h2>
-        <p>Get the latest posts directly to your inbox.</p>
+    <p style="margin-top:1rem;">
+      <a href="index.html">← Back to home</a>
+    </p>
+  </article>
 
-        <form>
-          <label for="email">Email</label>
-          <input id="email" type="email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </section>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <section class="subscription-options">
+      <h2>Subscribe</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" required>
 
-    </aside>
+      <div class="button-group">
+        <button type="submit">Subscribe</button>
+      </div>
+    </section>
+  </aside>
 
 </main>
 
-  <footer class="site-footer">
-    <div class="container">
-        <p>&copy; 2026 Campus Blog</p>
-    </div>
+<footer class="footer">
+  <p>&copy; 2026 Campus Blog</p>
 </footer>
 
-  <!-- FIX: osynlig container så posts.js inte kraschar -->
-  <div id="blog-posts" style="display:none;"></div>
+<!-- Krävs för posts.js -->
+<div id="blog-posts" style="display:none;"></div>
 
-  <script src="posts.js"></script>
-  <script src="post.js"></script>
-
+<script src="posts.js"></script>
+<script src="post.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
