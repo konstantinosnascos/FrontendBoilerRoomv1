@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,9 +23,11 @@
     </div>
 </header>
 
-<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-    🌙 Dark mode
-</button>
+    <!-- Dark mode-knapp (flyttad in i headern så den känns "rätt") -->
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        🌙 Dark mode
+    </button>
+</header>
 
 <main class="container">
 
@@ -83,6 +85,36 @@
                     <li><a href="#">Popular post 2</a></li>
                 </ul>
             </section>
+        <!-- ✅ HIT renderar index.js alla posts -->
+        <div class="cards-container" id="blog-posts">
+            <!-- JS lägger in post-cards här -->
+        </div>
+    </section>
+
+    <section class="subscription-options">
+        <button>Subscribe</button><br>
+        <label for="subscribe-mail">Enter email</label>
+        <textarea name="Email" id="subscribe-mail" cols="30" rows="1"></textarea><br>
+        <button>Unsubscribe</button>
+    </section>
+
+    <section class="categories">
+        <h2>Categories</h2>
+        <p class="cateogry-options">kategori 1</p>
+        <p class="cateogry-options">kategori 2</p>
+        <p class="cateogry-options">kategori 3</p>
+        <p class="cateogry-options">kategori 4</p>
+    </section>
+
+    <section class="popular-post">
+        <h2>Popular Posts</h2>
+        <div class="cards-container">
+            <article class="post-card">
+                <div class="post-header"><h3>Popular Post Title</h3></div>
+                <div class="post-body">
+                    <p class="description">Short Description</p>
+                </div>
+            </article>
 
         </aside>
 
@@ -97,5 +129,24 @@
 </footer>
 
 <script src="script.js"></script>
+</body>
+            <article class="post-card">
+                <div class="post-header"><h3>Popular Post Title</h3></div>
+                <div class="post-body">
+                    <p class="description">Short Description</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Blogg | Follow us on social media.</p>
+    </footer>
+</main>
+
+<script src="posts.js"></script>
+<script src="index.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
