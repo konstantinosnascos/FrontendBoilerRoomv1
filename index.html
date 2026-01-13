@@ -1,110 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Campus Blog</title>
+    <meta name="description" content="Campus Blog – nyheter, tips och studieliv.">
+    <link rel="stylesheet" href="style.css">
 </head>
-    <body>
-        <header class="header">
-            <h1>Campus Blog</h1>
-            <div class="logo"></div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a> </li>
-                    <li><a href="about.html">About</a> </li>
-                    <li><a href="#">Contact</a> </li>
-                </ul>
-            </nav>
-        </header>
 
-        <button id="theme-toggle" aria-label="Toggle dark mode">
-            🌙 Dark mode
-        </button>
+<body>
 
-        <main class="main">
-            <div class="featured-box">
-            <section class="featured-post">
-                <h1>Featured Post</h1>
-                <p>Find the best blogg-post in town!</p>
-            </section>
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">Campus Blog</a>
+
+        <nav aria-label="Huvudnavigation">
+            <ul class="nav-list">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    🌙 Dark mode
+</button>
+
+<main class="container">
+
+    <!-- FEATURED POST -->
+    <section class="featured-post">
+        <img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
+             alt="Utvald artikel"
+             class="featured-image">
+
+        <div class="featured-content">
+            <h1>Featured Post</h1>
+            <p>Find the best blog post on campus.</p>
+            <a href="#" class="btn">Read more</a>
+        </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+        <!-- RECENT POSTS -->
+        <section class="posts">
+            <h2>Recent Posts</h2>
+
+            <div id="blog-posts" class="posts-list">
+                <!-- JS renderar inlägg här -->
             </div>
-            <section class="recent-post">
-                <h2>Recent Posts</h2>
-                <div class="cards-container">
-                    <!-- Post 1 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+        </section>
 
-                    <!-- Post 2 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-                    <!-- Post 3 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="blogger">name</p>
-                            <p class="date">date</p>
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
-                </div>
+            <section class="subscribe">
+                <h2>Subscribe</h2>
+                <form>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </section>
-            <section class="subscription-options">
-                <button>Subscribe</button><br>
-                <label name="Email">Enter email</label>
-                <textarea name="Email" id="subscribe-mail" cols="30" rows="1"></textarea><br>
-                <button>Unsubscribe</button>
 
-            </section>
             <section class="categories">
-
                 <h2>Categories</h2>
-                <p class="cateogry-options">kategori 1</p>
-                <p class="cateogry-options">kategori 2</p>
-                <p class="cateogry-options">kategori 3</p>
-                <p class="cateogry-options">kategori 4</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Accessibility</li>
+                </ul>
             </section>
-            <section class="popular-post">
-                <h2>Popular Posts</h2>
-                <div class="cards-container">
-                    <!-- Popular Post 1 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Popular Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
 
-                    <!-- Popular Post 2 -->
-                    <article class="post-card">
-                        <div class="post-header"><h3>Popular Post Title</h3></div>
-                        <div class="post-body">
-                            <p class="description">Short Description</p>
-                        </div>
-                    </article>
-                </div>
+            <section class="popular-posts">
+                <h2>Popular Posts</h2>
+                <ul>
+                    <li><a href="#">Popular post 1</a></li>
+                    <li><a href="#">Popular post 2</a></li>
+                </ul>
             </section>
-            <footer class="footer">
-                <p>&copy; 2026 Blogg | Follow us on social media.</p>
-            </footer>
-        </main>
-        <script src="script.js"></script>
-    </body>
+
+        </aside>
+
+    </div>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Campus Blog</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>
