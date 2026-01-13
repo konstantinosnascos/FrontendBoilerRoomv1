@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name=viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Campus Blog</title>
+
+    <meta name="description" content="Campus Blog – nyheter, tips och studieliv.">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
 
 <body>
+
 <header class="header">
-    <div class="logo">Blogg</div>
+    <a href="index.html" class="logo">Campus Blog</a>
+
     <nav class="nav" aria-label="Huvudnavigation">
         <ul class="nav-list">
             <li><a href="index.html" aria-current="page">Home</a></li>
@@ -20,69 +24,87 @@
         </ul>
     </nav>
 
-    <!-- Dark mode-knapp (flyttad in i headern så den känns "rätt") -->
     <button id="theme-toggle" aria-label="Toggle dark mode">
         🌙 Dark mode
     </button>
 </header>
 
 <main class="main">
+
+    <!-- FEATURED -->
     <section class="featured-post">
         <h1>Featured Post</h1>
-        <p>Find the best blogg-post in town!</p>
+        <p>Find the best blog post on campus.</p>
     </section>
 
+    <!-- RECENT POSTS -->
     <section class="recent-post">
         <h2>Recent Posts</h2>
 
-        <!-- ✅ HIT renderar index.js alla posts -->
         <div class="cards-container" id="blog-posts">
-            <!-- JS lägger in post-cards här -->
+            <!-- JS renderar posts här -->
         </div>
     </section>
 
-    <section class="subscription-options">
-        <button>Subscribe</button><br>
-        <label for="subscribe-mail">Enter email</label>
-        <textarea name="Email" id="subscribe-mail" cols="30" rows="1"></textarea><br>
-        <button>Unsubscribe</button>
-    </section>
+    <!-- SIDEBAR -->
+    <aside>
 
-    <section class="categories">
-        <h2>Categories</h2>
-        <p class="cateogry-options">kategori 1</p>
-        <p class="cateogry-options">kategori 2</p>
-        <p class="cateogry-options">kategori 3</p>
-        <p class="cateogry-options">kategori 4</p>
-    </section>
+        <section class="subscription-options">
+            <h2>Subscribe</h2>
 
-    <section class="popular-post">
-        <h2>Popular Posts</h2>
-        <div class="cards-container">
-            <article class="post-card">
-                <div class="post-header"><h3>Popular Post Title</h3></div>
-                <div class="post-body">
-                    <p class="description">Short Description</p>
-                </div>
-            </article>
+            <label for="subscribe-mail">Email</label>
+            <input type="email" id="subscribe-mail" required>
 
-            <article class="post-card">
-                <div class="post-header"><h3>Popular Post Title</h3></div>
-                <div class="post-body">
-                    <p class="description">Short Description</p>
-                </div>
-            </article>
-        </div>
-    </section>
+            <div class="button-group">
+                <button id="subscribe-btn">Subscribe</button>
+                <button id="unsubscribe-btn">Unsubscribe</button>
+            </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 Blogg | Follow us on social media.</p>
-    </footer>
+            <p id="subscription-message" aria-live="polite"></p>
+        </section>
+
+        <section class="categories">
+            <h2>Categories</h2>
+            <p class="cateogry-options">HTML</p>
+            <p class="cateogry-options">CSS</p>
+            <p class="cateogry-options">JavaScript</p>
+            <p class="cateogry-options">Accessibility</p>
+        </section>
+
+        <section class="popular-post">
+            <h2>Popular Posts</h2>
+
+            <div class="cards-container">
+                <article class="post-card">
+                    <div class="post-header">
+                        <h3>Popular Post Title</h3>
+                    </div>
+                    <div class="post-body">
+                        <p class="description">Short description</p>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-header">
+                        <h3>Popular Post Title</h3>
+                    </div>
+                    <div class="post-body">
+                        <p class="description">Short description</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </aside>
+
 </main>
+
+<footer class="footer">
+    <p>&copy; 2026 Campus Blog | Follow us on social media.</p>
+</footer>
 
 <script src="posts.js"></script>
 <script src="index.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>

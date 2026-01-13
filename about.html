@@ -3,51 +3,89 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Om oss | Campus Blog</title>
+    <title>About | Campus Blog</title>
     <meta name="description" content="Information om Campus Blog och syftet med webbplatsen.">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<header class="header">
+    <a href="index.html" class="logo">Campus Blog</a>
+
     <nav aria-label="Huvudnavigation">
-        <ul>
-            <li><a href="index.html">Hem</a></li>
-            <li><a href="about.html" aria-current="page">Om oss</a></li>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
         </ul>
     </nav>
+
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        🌙 Dark mode
+    </button>
 </header>
 
-<main id="main">
-    <section>
-        <h1>Om Campus Blog</h1>
-        <p>
-            Campus Blog är en webbplats skapad för studenter som vill dela tankar,
-            erfarenheter och tips om studieliv, vardag och campus.
-        </p>
+<main class="main">
+
+    <section class="recent-post">
+        <h2>About Campus Blog</h2>
+
+        <div class="cards-container">
+            <article class="post-card">
+                <div class="post-header">
+                    <h3>What is Campus Blog?</h3>
+                </div>
+                <div class="post-body">
+                    <p>
+                        Campus Blog is a platform created by students, for students.
+                        Here we share thoughts, experiences and tips about student life,
+                        studies and campus culture.
+                    </p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <h3>Our Purpose</h3>
+                </div>
+                <div class="post-body">
+                    <p>
+                        The purpose of the blog is to inspire, inform and help students
+                        by collecting useful content and personal stories.
+                    </p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <h3>Who are we?</h3>
+                </div>
+                <div class="post-body">
+                    <p>
+                        Campus Blog is run by students learning web development who want
+                        to combine technology with creative content.
+                    </p>
+                </div>
+            </article>
+        </div>
     </section>
 
-    <section>
-        <h2>Syfte</h2>
-        <p>
-            Syftet med bloggen är att samla inspiration, information och personliga
-            inlägg som kan vara till hjälp för andra studenter.
-        </p>
-    </section>
+    <aside class="sidebar">
+        <section class="categories">
+            <h2>Categories</h2>
+            <p class="category-option">HTML</p>
+            <p class="category-option">CSS</p>
+            <p class="category-option">JavaScript</p>
+            <p class="category-option">Accessibility</p>
+        </section>
+    </aside>
 
-    <section>
-        <h2>Vilka står bakom?</h2>
-        <p>
-            Campus Blog drivs av studenter som lär sig webbutveckling och vill
-            kombinera teknik med kreativt innehåll.
-        </p>
-    </section>
 </main>
 
-<footer>
+<footer class="footer">
     <p>&copy; 2026 Campus Blog</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,52 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Campus Blog</title>
+    <meta name="description" content="Contact information for Campus Blog.">
     <link rel="stylesheet" href="style.css">
-    <title>Contacts</title>
 </head>
+
 <body>
-    <header>
-        <!-- Navigation Bar -->
-        <section>
-            <header class="header">
-                <div class="logo">Blogg</div>
-                <nav class="nav" aria-label="Huvudnavigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" aria-current="page">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
 
-                <!-- Dark mode-knapp (flyttad in i headern så den känns "rätt") -->
-                <button id="theme-toggle" aria-label="Toggle dark mode">
-                    🌙 Dark mode
-                </button>
-            </header>
+<header class="header">
+    <a href="index.html" class="logo">Campus Blog</a>
+
+    <nav aria-label="Huvudnavigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        🌙 Dark mode
+    </button>
+</header>
+
+<main class="main">
+
+    <section class="recent-post">
+        <h2>Contact</h2>
+
+        <div class="cards-container">
+            <article class="post-card">
+                <div class="post-header">
+                    <h3>Main Line</h3>
+                </div>
+                <div class="post-body">
+                    <p>📞 +46 070 222 22 22</p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <h3>Personal Lines</h3>
+                </div>
+                <div class="post-body">
+                    <p><strong>Jonathan:</strong> +46 070 322 22 22</p>
+                    <p><strong>Jonatan:</strong> +46 070 422 22 22</p>
+                    <p><strong>Konstantinos:</strong> +46 070 522 22 22</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <section class="categories">
+            <h2>Categories</h2>
+            <p class="category-option">HTML</p>
+            <p class="category-option">CSS</p>
+            <p class="category-option">JavaScript</p>
+            <p class="category-option">Accessibility</p>
         </section>
+    </aside>
 
-        <h1>Contact</h1>
-    </header>
+</main>
 
-    <main>
-        <h2>Telephone</h2>
+<footer class="footer">
+    <p>&copy; 2026 Campus Blog</p>
+</footer>
 
-        <section>
-            <h4>Main Line</h4>
-            <h5>+46-070 222 22 22</h5>
-        </section>
-
-        <section>
-            <h4>Personal Lines</h4>
-            <h5>Jonathan: +46-070 322 22 22</h5>
-            <h5>Jonatan: +46-070 422 22 22</h5>
-            <h5>Konstantinos: +46-070 522 22 22</h5>
-        </section>
-    </main>
-
-    <footer>
-
-    </footer>
+<script src="script.js"></script>
 </body>
 </html>
