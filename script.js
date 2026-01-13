@@ -17,3 +17,33 @@ toggleButton.addEventListener("click", () => {
         toggleButton.textContent = "🌙 Dark mode";
     }
 });
+
+// Subscription form validation: show message if email textarea is empty
+document.addEventListener('DOMContentLoaded', () => {
+    const mail = document.getElementById('subscribe-mail');
+    const buttons = document.querySelectorAll('.subscription-options button');
+
+    function requireEmail() {
+        if (!mail || !mail.value.trim()) {
+            alert('Please enter your email');
+            return false;
+        }
+        return true;
+    }
+
+    if (buttons[0]) {
+        buttons[0].addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!requireEmail()) return;
+            alert('Subscribed with ' + mail.value.trim());
+        });
+    }
+
+    if (buttons[1]) {
+        buttons[1].addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!requireEmail()) return;
+            alert('Unsubscribed ' + mail.value.trim());
+        });
+    }
+});
