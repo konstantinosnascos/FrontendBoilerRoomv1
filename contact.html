@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Contacts</title>
 </head>
 <body>
     <header>
         <!-- Navigation Bar -->
         <section>
-            <div class="logo">Blogg</div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="index.html">Home</a> </li>
-                    <li><a href="about.html">About</a> </li>
-                    <li><a href="#">Contact</a> </li>
-                </ul>
-            </nav>
+            <header class="header">
+                <div class="logo">Blogg</div>
+                <nav class="nav" aria-label="Huvudnavigation">
+                    <ul class="nav-list">
+                        <li><a href="index.html" aria-current="page">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Dark mode-knapp (flyttad in i headern så den känns "rätt") -->
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    🌙 Dark mode
+                </button>
+            </header>
         </section>
 
         <h1>Contact</h1>
