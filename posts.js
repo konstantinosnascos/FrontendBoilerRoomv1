@@ -1,0 +1,119 @@
+const blogPosts = [
+  {
+    id: "post-1",
+    title: "Tillgänglighet på webben",
+    excerpt: "En introduktion till varför tillgänglighet är viktigt på webben.",
+    content:
+      "Tillgänglighet på webben handlar om att skapa lösningar som kan användas av alla, oavsett funktionsvariation. Genom att följa WCAG säkerställs begriplighet och användbarhet.",
+    author: "Anna Svensson",
+    date: "2025-01-05",
+    category: "Webbutveckling"
+  },
+  {
+    id: "post-2",
+    title: "Semantisk HTML",
+    excerpt: "Hur rätt HTML-element förbättrar tillgänglighet.",
+    content:
+      "Semantiska element som article, header och nav gör innehållet mer begripligt för skärmläsare och andra hjälpmedel.",
+    author: "Erik Johansson",
+    date: "2025-01-08",
+    category: "HTML"
+  },
+  {
+    id: "post-3",
+    title: "Färgkontrast och läsbarhet",
+    excerpt: "Färgval påverkar hur lätt text kan läsas.",
+    content:
+      "WCAG kräver tillräcklig kontrast mellan text och bakgrund. Detta är särskilt viktigt för användare med nedsatt syn.",
+    author: "Lina Berg",
+    date: "2025-01-12",
+    category: "Design"
+  },
+  {
+    id: "post-4",
+    title: "Rubrikstruktur",
+    excerpt: "Så skapar du en logisk struktur med rubriker.",
+    content:
+      "En korrekt rubrikstruktur gör det möjligt för användare att snabbt navigera mellan olika delar av innehållet.",
+    author: "Johan Nilsson",
+    date: "2025-01-15",
+    category: "Tillgänglighet"
+  },
+  {
+    id: "post-5",
+    title: "Alt-texter för bilder",
+    excerpt: "Beskriv bilder så att alla förstår.",
+    content:
+      "Alt-texter är nödvändiga för användare som inte kan se bilder. De ska vara korta, beskrivande och relevanta.",
+    author: "Sara Lund",
+    date: "2025-01-18",
+    category: "WCAG"
+  },
+  {
+    id: "post-6",
+    title: "Tangentbordsnavigering",
+    excerpt: "Alla funktioner ska fungera utan mus.",
+    content:
+      "Webbplatser måste vara fullt användbara med tangentbord för att uppfylla tillgänglighetskrav.",
+    author: "Markus Holm",
+    date: "2025-01-22",
+    category: "UX"
+  },
+  {
+    id: "post-7",
+    title: "Formulär och etiketter",
+    excerpt: "Etiketter hjälper användare att förstå formulär.",
+    content:
+      "Alla formulärfält ska ha korrekt kopplade label-element för bästa tillgänglighet.",
+    author: "Emma Karlsson",
+    date: "2025-01-25",
+    category: "Formulär"
+  },
+  {
+    id: "post-8",
+    title: "Språkattribut i HTML",
+    excerpt: "Rätt språk förbättrar uppläsning.",
+    content:
+      "Genom att använda lang-attributet kan skärmläsare uttala texten korrekt.",
+    author: "Daniel Persson",
+    date: "2025-01-28",
+    category: "Internationellt"
+  },
+  {
+    id: "post-9",
+    title: "Tillgänglighet som standard",
+    excerpt: "Bygg tillgänglighet från start.",
+    content:
+      "När tillgänglighet är en naturlig del av utvecklingsprocessen skapas bättre produkter för alla.",
+    author: "Maria Ek",
+    date: "2025-02-01",
+    category: "Strategi"
+  }
+];
+
+const container = document.getElementById("blog-posts");
+
+blogPosts.forEach(post => {
+  const article = document.createElement("article");
+  article.id = post.id;
+
+  article.innerHTML = 
+  `
+    <header>
+      <h2>${post.title}</h2>
+      <p>
+        <time datetime="${post.date}">
+          ${new Date(post.date).toLocaleDateString("sv-SE")}
+        </time>
+        • <span>Av ${post.author}</span>
+        • <span>Kategori: ${post.category}</span>
+      </p>
+    </header>
+    <p><strong>Kort utdrag:</strong> ${post.excerpt}</p>
+    <p>${post.content}</p>
+    <img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png" alt="Placeholder" />
+    `
+    ;
+
+  container.appendChild(article);
+});
