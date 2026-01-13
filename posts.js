@@ -86,7 +86,6 @@ const blogPosts = [
     date: "2025-01-28",
     category: "Internationellt",
     Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-
   },
   {
     id: "post-9",
@@ -100,28 +99,3 @@ const blogPosts = [
     Image: "https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
   }
 ];
-
-const container = document.getElementById("blog-posts");
-
-blogPosts.forEach(post => {
-  const article = document.createElement("article");
-  article.id = post.id;
-
-  article.innerHTML = `
-    <header>
-      <h2>${post.title}</h2>
-      <p>
-        <time datetime="${post.date}">
-          ${new Date(post.date).toLocaleDateString("sv-SE")}
-        </time>
-        • <span>Av ${post.author}</span>
-        • <span>Kategori: ${post.category}</span>
-      </p>
-    </header>
-    <p><strong>Kort utdrag:</strong> ${post.excerpt}</p>
-    <p>${post.content}</p>
-    <img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png" alt="Placeholder" />
-    `;
-
-  container.appendChild(article);
-});
