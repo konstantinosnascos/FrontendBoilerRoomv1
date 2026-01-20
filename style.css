@@ -1,4 +1,771 @@
-body.dark-mode {
-    background: #121212;
-    color: white;
+/* ===== RESET & BAS ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #353535;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #4f6d7a;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #4f6d7a;
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background-color: #759c8a;
+  color: white;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-list a {
+  color: white;
+}
+
+.nav-list a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+/* ===== THEME BUTTON ===== */
+.theme-toggle {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* ===== FEATURED ===== */
+.featured-post {
+  background-color: #e8dab2;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.featured-content {
+  padding: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #4f6d7a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* ===== POSTS ===== */
+.posts h2 {
+  margin-bottom: 1rem;
+}
+
+.posts-list article {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar section {
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: #353535;
+  color: white;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode a {
+  color: #e8dab2;
+}
+
+/* ===== RESPONSIV ===== */
+@media (min-width: 1024px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.post-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.post-body .category {
+    display: inline-block;
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+:root {
+    --color-primary: #2c3e50;
+    --color-secondary: #3498db;
+    --color-accent: #e74c3c;
+    --color-light: #ecf0f1;
+    --color-dark: #2c3e50;
+    --color-white: #ffffff;
+    --color-text: #333333;
+    --color-muted: #666666;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-light);
+    color: var(--color-text);
+}
+
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-list a {
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+}
+
+.nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main {
+    padding: 1rem;
+}
+
+.featured-box {
+    margin-bottom: 2rem;
+}
+
+.featured-post {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.featured-post h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-post p {
+    font-size: 1rem;
+}
+
+.recent-post,
+.popular-post,
+.categories,
+.subscription-options {
+    margin-bottom: 2rem;
+}
+
+.recent-post h2,
+.popular-post h2,
+.categories h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.post-card {
+    background-color: var(--color-white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-header {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 1rem;
+}
+
+.post-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.post-body {
+    padding: 1rem;
+}
+
+.post-body p {
+    margin-bottom: 0.25rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.post-body .blogger {
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.subscription-options {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.subscription-options label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.subscription-options textarea {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    font-size: 1rem;
+}
+
+.subscription-options button {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.subscription-options button:hover {
+    background-color: #2980b9;
+}
+
+.subscription-options button:last-of-type {
+    background-color: var(--color-accent);
+}
+
+.subscription-options button:last-of-type:hover {
+    background-color: #c0392b;
+}
+
+.categories {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.cateogry-options {
+    background-color: var(--color-light);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cateogry-options:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        width: auto;
+        gap: 1.5rem;
+    }
+
+    .nav-list a:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    .main {
+        padding: 2rem;
+    }
+
+    .featured-post {
+        padding: 3rem 2rem;
+    }
+
+    .featured-post h1 {
+        font-size: 2rem;
+    }
+
+    .featured-post p {
+        font-size: 1.15rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recent-post h2,
+    .popular-post h2,
+    .categories h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "featured featured"
+            "recent sidebar"
+            "popular sidebar"
+            "footer footer";
+        gap: 2rem;
+    }
+
+    .subscription-options h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+
+    .subscription-options label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .subscription-options textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        resize: none;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .subscription-options button {
+        flex: 1;
+        min-width: 120px;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    #subscribe-btn {
+        background-color: #27ae60;
+        color: white;
+    }
+
+    #subscribe-btn:hover {
+        background-color: #219a52;
+    }
+
+    #unsubscribe-btn {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    #unsubscribe-btn:hover {
+        background-color: #c0392b;
+    }
+
+    #subscription-message {
+        margin-top: 1rem;
+        font-weight: bold;
+        min-height: 1.5rem;
+    }
+
+    .featured-box {
+        grid-area: featured;
+    }
+
+    .recent-post {
+        grid-area: recent;
+    }
+
+    .popular-post {
+        grid-area: popular;
+    }
+
+    .subscription-options,
+    .categories {
+        grid-area: sidebar;
+    }
+
+    .subscription-options {
+        margin-bottom: 1rem;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    .featured-post {
+        padding: 4rem 2rem;
+    }
+
+    .featured-post h1 {
+        font-size: 2.5rem;
+    }
+
+    .featured-post p {
+        font-size: 1.25rem;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recent-post .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .popular-post .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#theme-toggle {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: white;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Hover */
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: white;
+}
+
+/* Klick-feedback */
+#theme-toggle:active {
+  transform: scale(0.96);
+}
+
+/* Fokus (tillgänglighet) */
+#theme-toggle:focus-visible {
+  outline: 3px solid #e8dab2;
+  outline-offset: 3px;
+}
+
+
+body.dark-mode .post-card,
+body.dark-mode .subscription-options,
+body.dark-mode .categories,
+body.dark-mode .footer {
+  background-color: #1e1e1e;
+  border-color: #2b2b2b;
+  color: #eaeaea;
+}
+
+body.dark-mode .post-body p {
+  color: #b5b5b5;
+}
+
+body.dark-mode .post-body .blogger {
+  color: #eaeaea;
+}
+
+body.dark-mode .recent-post h2,
+body.dark-mode .popular-post h2,
+body.dark-mode .categories h2 {
+  color: #eaeaea;
+}
+
+body.dark-mode .cateogry-options {
+  background-color: #1e1e1e;
+  border: 1px solid #2b2b2b;
+}
+
+body.dark-mode .cateogry-options:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.about-card,
+.contact-card {
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Formulär – gör att det ser bra ut i båda teman */
+.contact-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.contact-form button {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  filter: brightness(0.95);
+}
+
+
+/* =========================
+   DARK MODE (GLOBALT)
+   ========================= */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eaeaea;
+}
+
+/* Länkar i dark mode */
+body.dark-mode a {
+  color: #e8dab2;
+}
+
+/* Alla "vita boxar" / cards */
+body.dark-mode .post-card,
+body.dark-mode .subscription-options,
+body.dark-mode .categories,
+body.dark-mode .featured-post,
+body.dark-mode .post-single,
+body.dark-mode .sidebar section,
+body.dark-mode .contact-card,
+body.dark-mode .about-card {
+  background-color: #1e1e1e;
+  border-color: #2b2b2b;
+  color: #eaeaea;
+}
+
+/* Text som tidigare var "muted" */
+body.dark-mode .post-body p,
+body.dark-mode .cateogry-options,
+body.dark-mode .description,
+body.dark-mode .date {
+  color: #b5b5b5;
+}
+
+body.dark-mode .post-body .blogger {
+  color: #eaeaea;
+}
+
+/* Rubriker */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #eaeaea;
+}
+
+/* Inputs / textarea i dark mode */
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #161616;
+  color: #eaeaea;
+  border: 1px solid #2b2b2b;
+}
+
+/* ===== Dark mode-knappen ===== */
+#theme-toggle {
+  appearance: none;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: white;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: white;
+}
+
+#theme-toggle:active {
+  transform: scale(0.96);
+}
+
+body.dark-mode #theme-toggle {
+  color: #e8dab2;
+  border-color: #e8dab2;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background-color: rgba(232, 218, 178, 0.15);
+}
+
+
+
+
+
