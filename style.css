@@ -766,6 +766,46 @@ body.dark-mode #theme-toggle:hover {
 }
 
 
+/* ===== POST CARDS: gör dem jämna och snygga ===== */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Gör att body kan växa och trycka ner länken */
+.post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+/* Begränsa excerpt så korten blir jämna */
+.post-body .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* max 3 rader */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* "Läs mer" längst ner */
+.post-body .read-more {
+  margin-top: auto;
+  font-weight: 600;
+  padding-top: 0.5rem;
+}
+
+/* Lite snygg hover på kort */
+.post-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.15s ease;
+}
+
+/* Gör rubriker lite tajtare */
+.post-header h3 {
+  line-height: 1.2;
+}
 
 
 

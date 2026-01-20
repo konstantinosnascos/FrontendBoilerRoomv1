@@ -14,15 +14,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const posts = await res.json();
 
       postsContainer.innerHTML = posts
-        .map(
-          (post) => `
+        .map((post) => `
           <article class="post-card">
-            <h3>${post.title}</h3>
-            <p>${post.excerpt}</p>
-            <a href="/post.html?id=${post.id}">Läs mer</a>
+            <div class="post-header">
+              <h3>${post.title}</h3>
+            </div>
+
+            <div class="post-body">
+              ${post.image ? `<img class="post-image" src="${post.image}" alt="">` : ""}
+
+              <p class="blogger">${post.author ?? ""}</p>
+              <p class="date">${post.date ? new Date(post.date).toLocaleDateString("sv-SE") : ""}</p>
+
+              <p class="description">${post.excerpt ?? ""}</p>
+
+              <a class="read-more" href="/post.html?id=${post.id}">Läs mer</a>
+            </div>
           </article>
-        `
-        )
+        `)
+
         .join("");
     } catch (err) {
       console.error(err);
