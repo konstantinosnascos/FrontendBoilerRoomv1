@@ -767,5 +767,29 @@ body.dark-mode #theme-toggle:hover {
 
 
 
+.about-card {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+}
+
+.about-card h1,
+.about-card h2 {
+    margin-bottom: 0.75rem;
+    color: var(--color-dark);
+}
+
+.about-card .description {
+    margin-bottom: 0.75rem;
+    color: var(--color-muted);
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
 
