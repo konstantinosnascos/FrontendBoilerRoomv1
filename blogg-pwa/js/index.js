@@ -1,26 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("blog-posts");
-  if (!container) return;
+  const postsContainer = document.querySelector("#blog-posts");
 
-  container.innerHTML = "";
+  if (!postsContainer) {
+    console.warn("Hittar inte #blog-posts");
+    return;
+  }
 
-  blogPosts.forEach(post => {
-    const article = document.createElement("article");
-    article.className = "post-card";
+  async function loadPosts() {
+    try {
+      const res = await fetch("http://localhost:3000/posts");
+      if (!res.ok) throw new Error("Fetch misslyckades");
 
-    article.innerHTML = `
-      <div class="post-header">
-        <h3>
-          <a href="post.html?id=${post.id}">${post.title}</a>
-        </h3>
-      </div>
-      <div class="post-body">
-        <p class="blogger">${post.author}</p>
-        <p class="date">${new Date(post.date).toLocaleDateString("sv-SE")}</p>
-        <p class="description">${post.excerpt}</p>
-      </div>
-    `;
+      const posts = await res.json();
 
-    container.appendChild(article);
-  });
+      postsContainer.innerHTML = posts
+        .map(
+          (post) => `
+          <article class="post-card">
+            <h3>${post.title}</h3>
+            <p>${post.excerpt}</p>
+            <a href="/post.html?id=${post.id}">Läs mer</a>
+          </article>
+        `
+        )
+        .join("");
+    } catch (err) {
+      console.error(err);
+      postsContainer.innerHTML = "<p>Kunde inte ladda inlägg.</p>";
+    }
+  }
+
+  loadPosts();
 });
