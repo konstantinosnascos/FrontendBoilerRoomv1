@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark-mode");
   }
 
-  // Koppla knapp om den finns
+  // Uppdatera knappens text direkt när sidan laddas
   if (toggleButton) {
     toggleButton.textContent = document.body.classList.contains("dark-mode")
       ? "☀️ Light mode"
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isDark = document.body.classList.contains("dark-mode");
       localStorage.setItem("theme", isDark ? "dark" : "light");
+
       toggleButton.textContent = isDark ? "☀️ Light mode" : "🌙 Dark mode";
     });
   }
+});
